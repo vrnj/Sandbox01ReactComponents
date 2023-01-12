@@ -1,10 +1,11 @@
 import React from 'react';
+import Accordion from './components/Accordion/Accordion';
 import logo from './logo.svg';
-import './App.css';
+//import './App.css';
 
 
 function hello() {
-  debugger; //F10, works with browser console only
+  //debugger; //F10, works with browser console only
   alert('Hello world!');
 }
   
@@ -17,15 +18,23 @@ function App() {
   //must return JSX (looks like HTML)
   return (
     <div className="App"> 
-      This is the App component
+      <AppTitle />
       <Rating />
       <Accordion />
+      <Rating />
     </div>
   );
 }
 
+//<> fragment tag - an placeholder for an html element
+function AppTitle() {
+  return (
+    <>This is the App component</>
+  );
+}
 
 function Rating() {
+  console.log('rating rendered');
   return(
     <div>
       <Star />
@@ -40,18 +49,7 @@ function Rating() {
 }
 export default App;
 
-function Accordion() {
-  return (
-    <div>
-      <h4>Menu</h4>
-      <ul>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
-      </ul>
-    </div>
-  );
-}
+
 
 function Star() {
   return (
