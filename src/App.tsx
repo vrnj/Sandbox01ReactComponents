@@ -23,15 +23,19 @@ function App() {
       <input type="password" value={"yo"} checked={true} /> 
       <AppTitle title={"This is the App component"}/>
       <Rating value={3}/>
-      <Accordion menuTitle={"First menu"}/>
+      <Accordion menuTitle={"First menu"} collapsed={true}/>
       <Rating value={2}/>
-      <Accordion menuTitle={"Second menu"}/>
+      <Accordion menuTitle={"Second menu"} collapsed={false}/>
     </div>
   );
 }
 
+
+type AppTitlePropsType = {
+  title: string;
+}
 //<> fragment tag - an placeholder for an html element
-function AppTitle(props: any) {
+function AppTitle(props: AppTitlePropsType) {
   return (
     <>{props.title}</>
   );

@@ -1,26 +1,45 @@
 import React from 'react';
 
-function Accordion(props: any) {
+
+type AccordionPropsType = {
+    menuTitle: string,
+    collapsed: boolean
+};
+
+function Accordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle title={props.menuTitle} />
-      <AccordionBody />
+      <AccordionBody accordionCollapsed={props.collapsed}/>
     </div>
   );
 }
 
-function AccordionTitle(props: any) {
+type AccordionPropsTitleType = {
+    title: string;
+}
+function AccordionTitle(props: AccordionPropsTitleType) {
   return <h4>{props.title}</h4>;
 }
 
-function AccordionBody() {
-  return (
+type AccordionBodyType = {
+    accordionCollapsed: boolean;
+}
+
+function AccordionBody(props: AccordionBodyType) {
+
+    if(props.accordionCollapsed){
+        return (<div><span>Collapsed</span></div>);
+    } else {
+        return (
     <ul>
         <li>one</li>
         <li>two</li>
         <li>three</li>
       </ul>
-  );
+    );
+    }
+  
 }
 
 export default Accordion;

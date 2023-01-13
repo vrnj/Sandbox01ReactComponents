@@ -1,6 +1,12 @@
 import React from 'react';
 
-export function Rating(props: any) {
+//specifying the data type
+type RatingPropsType = {
+    //value: number;
+    value: 0 | 1 | 2 | 3 | 5 ; //the set of acceptable values
+}
+
+export function Rating(props: RatingPropsType) {
   if (props.value === 1){
     return(
     <div>
@@ -49,9 +55,11 @@ export function Rating(props: any) {
 }
 
 
+type StarPropsType = {
+    selected: boolean;
+}
 
-
-function Star(props: any) { //function Star accepts props with some values inside it
+function Star(props: StarPropsType) { //function Star accepts props with some values inside it
   //and renders the component according to the value passed forward with the props
   //rendering star styling depending on the props (selected) value
   //component itself does not own any data from within
