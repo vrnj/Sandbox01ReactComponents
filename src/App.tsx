@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from './components/Accordion/Accordion';
+import { Rating as Rating} from './components/Rating/Rating';
 import logo from './logo.svg';
 //import './App.css';
 
@@ -18,41 +19,22 @@ function App() {
   //must return JSX (looks like HTML)
   return (
     <div className="App"> 
-      <AppTitle />
-      <Rating />
-      <Accordion />
-      <Rating />
+      <input />
+      <input type="password" value={"yo"} checked={true} /> 
+      <AppTitle title={"This is the App component"}/>
+      <Rating value={3}/>
+      <Accordion menuTitle={"First menu"}/>
+      <Rating value={2}/>
+      <Accordion menuTitle={"Second menu"}/>
     </div>
   );
 }
 
 //<> fragment tag - an placeholder for an html element
-function AppTitle() {
+function AppTitle(props: any) {
   return (
-    <>This is the App component</>
+    <>{props.title}</>
   );
 }
 
-function Rating() {
-  console.log('rating rendered');
-  return(
-    <div>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-    </div>
-    
-  );
-
-}
 export default App;
-
-
-
-function Star() {
-  return (
-    <span>★</span>
-  )
-}
